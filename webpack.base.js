@@ -8,12 +8,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {		
 	// mode: 'development', // 模式有两种： development production
-	entry: './src/index.js', // 入口
-	output: {
-		filename: 'bundle.[hash:8].js', // 打包后的文件名
-		path: path.resolve(__dirname, 'dist'), // 绝对路径
-		// publicPath: 'http://localhost:8080'
-	},
+	entry: './src/index.js', // 入口	
 	plugins: [ // 存放所有的 webpack 插件
 		new HtmlWebpackPlugin({
 			template: './src/index.html',

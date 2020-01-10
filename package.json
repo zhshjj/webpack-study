@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "rm -rf dist && webpack --config webpack.prod.js",
+    "dist": "rm -rf dist && webpack --config webpack.prod.js",
+    "build": "rm -rf build && webpack --config webpack.dev.js",
     "dev": "webpack-dev-server --open --port 3000 --contentBase src --hot",
     "server": "node server.js"
   },

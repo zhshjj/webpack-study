@@ -1,11 +1,17 @@
 const { smart } = require('webpack-merge')
 const base = require('./webpack.base.js')
+const path = require('path')
 const UglifyjsWebpackPlugin = require('uglifyjs-webpack-plugin') // 现在可以用 ‘terser-webpack-plugin’ 插件代替
 // const TerserJSPlugin = require('terser-webpack-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin') // 压缩 css，这里回影响到 js 的压缩，所以要使用下面的插件
 
 module.exports = smart(base, {
 	mode: 'production',
+	output: {
+		filename: 'bundle.[hash:8].js', // 打包后的文件名
+		path: path.resolve(__dirname, 'dist'), // 绝对路径
+		// publicPath: 'http://localhost:8080'
+	},
 	// 优化项（压缩成一行）
 	optimization: {
 		minimizer: [

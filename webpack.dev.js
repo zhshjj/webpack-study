@@ -1,8 +1,14 @@
 const { smart } = require('webpack-merge')
 const base = require('./webpack.base.js')
+const path = require('path')
 
 module.exports = smart(base, {
 	mode: 'development',
+	output: {
+		filename: 'bundle.[hash:8].js', // 打包后的文件名
+		path: path.resolve(__dirname, 'build'), // 绝对路径
+		// publicPath: 'http://localhost:8080'
+	},
 	devServer: { // 开发服务器的配置
 		// port: 3000,		
 		// open: true, // 直接打开浏览器
